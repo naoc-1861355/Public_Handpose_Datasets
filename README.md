@@ -71,5 +71,5 @@ Most datasets contains code to convert them to same format (ezxr format)
     </tr>
 </table>
 
-##ezxr format
+## ezxr format
 `normdat.py` convert datasets to same ezxr format

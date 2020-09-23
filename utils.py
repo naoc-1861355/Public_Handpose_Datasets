@@ -5,16 +5,16 @@ import numpy as np
 def plothand(img, kp, bones=None):
     """
      plothand is a function that plot single hand on the image
-    If not specified, plothand use default bones to connect joints.
+
     Image is desired to read by opencv. The outputs of other form of inputs are not guaranteed
 
     Args:
         :param img : image in matrix representation
         :param kp : joints position in 2d (21,2)
         :param bones: specify the bone connections of joints. If None, use the default bones
+
     Returns:
-        r1: sth. here....
-        r2: sth. here....
+        None
     """
     colors = np.array([[0.4, 0.4, 0.4],
                        [0.4, 0.0, 0.0],
@@ -71,4 +71,4 @@ def plothand(img, kp, bones=None):
         kp2 = kp[connection[1]]
         cv2.line(img, (int(kp1[0]), int(kp1[1])), (int(kp2[0]), int(kp2[1])), color, 1, cv2.LINE_AA)
     for i in range(21):
-        cv2.circle(img, (int(kp[i][0]), int(kp[i][1])), 3, colors[i, :], -1)
+        cv2.circle(img, (int(kp[i][0]), int(kp[i][1])), 2, colors[i, :], -1)
