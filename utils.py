@@ -72,3 +72,34 @@ def plothand(img, kp, bones=None):
         cv2.line(img, (int(kp1[0]), int(kp1[1])), (int(kp2[0]), int(kp2[1])), color, 1, cv2.LINE_AA)
     for i in range(21):
         cv2.circle(img, (int(kp[i][0]), int(kp[i][1])), 2, colors[i, :], -1)
+
+
+def generate_json_2d(kps_2d, hand_bbox, is_left):
+    """
+    generate_json_2d is a function that combine single hand joint info into a ezxr format dict
+
+    This function should only be used to generate 2d joint info.
+    Args:
+        :param hand_bbox : bounding box of joints
+        :param kps_2d : joints info in 2d
+        :param is_left : whether the hand is left
+
+    Returns:
+        :return dict_kp : joint info dictionary
+
+    """
+    pts = kps_2d
+    f52 = {'x': pts[0, 0], 'y': pts[0, 1], 'd': -1}
+    base_dic = {'x': -1, 'y': -1, 'z': -1}
+    hand_3d_list = [base_dic for i in range(4)]
+    f02 = [{'x': pts[0], 'y': pts[1], 'd': -1} for pts in pts[1:5, :]]
+    f12 = [{'x': pts[0], 'y': pts[1], 'd': -1} for pts in pts[5:9, :]]
+    f22 = [{'x': pts[0], 'y': pts[1], 'd': -1} for pts in pts[9:13, :]]
+    f32 = [{'x': pts[0], 'y': pts[1], 'd': -1} for pts in pts[13:17, :]]
+    f42 = [{'x': pts[0], 'y': pts[1], 'd': -1} for pts in pts[17:21, :]]
+    dict3d = {'f%d3' % i: hand_3d_list for i in range(6)}
+    dict_kp = {'palm_center': [-1, -1, -1], 'is_left': is_left, 'hand_bbox': hand_bbox, 'f52': [f52 for _ in range(4)],
+               'f02': f02, 'f12': f12, 'f22': f22, 'f32': f32, 'f42': f42}
+    dict_kp.update(dict3d)
+
+    return dict_kp
