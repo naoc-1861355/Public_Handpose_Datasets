@@ -1,8 +1,10 @@
-from utils import plothand
-import os.path
-import numpy as np
 import json
+import os.path
+
 import cv2
+import numpy as np
+
+from utils import plothand
 
 edges = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [0, 9], [9, 10], [10, 11], [11, 12], [0, 13],
          [13, 14], [14, 15], [15, 16], [0, 17], [17, 18], [18, 19], [19, 20]]
@@ -14,6 +16,9 @@ def viz(savefile=False):
 
      Args:
          :param savefile : whether to save the visualized image. default to False
+
+     Returns:
+        :return None
     """
     # output data paths. Replace your own output path here
     outpath = './sample/'
