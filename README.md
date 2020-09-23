@@ -4,37 +4,33 @@ This repository contains code for exploring and visualizing public handpose data
 ## Datasets included
 <table>
     <tr>
-        <th colspan="2">Institution</th>
+        <th>Institution</th>
         <th>dataset</th>
         <th>size</th>
     </tr>
     <tr>
-        <td>CMU</td>
+        <td rowspan="4">CMU</td>
         <td>Hands manual</td>
         <td>2.7k</td>
     </tr>
     <tr>
-        <td>CMU</td>
         <td>Hands from Synthetic Data</td>
         <td>14k</td>
     </tr>
     <tr>
-        <td>CMU</td>
         <td>Hands from Panoptic Studio</td>
         <td>14k</td>
     </tr>
     <tr>
-        <td>CMU</td>
         <td>mtc</td>
         <td>111k</td>
     </tr>
     <tr>
-        <td>Freiburg</td>
+        <td rowspan="2">Freiburg</td>
         <td>FreiHand dataset</td>
         <td>32k * 4</td>
     </tr>
     <tr>
-        <td>Freiburg</td>
         <td>Rendered Handpose Dataset (RHD)</td>
         <td>43k</td>
     </tr>
@@ -54,12 +50,11 @@ This repository contains code for exploring and visualizing public handpose data
         <td>80k</td>
     </tr>
         <tr>
-        <td>MPII</td>
+        <td rowspan="2">MPII</td>
         <td>GANerated Hands</td>
         <td>330k</td>
     </tr>
     <tr>
-        <td>MPII</td>
         <td>SynthHands</td>
         <td>63k</td>
     </tr>
