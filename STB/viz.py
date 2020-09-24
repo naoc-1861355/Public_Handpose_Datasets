@@ -34,17 +34,18 @@ def trans_uvd(kp_3d):
     return pts
 
 
-def viz(save_fig=False):
+def viz(inpath, save_fig=False):
     """
     normdat is a function that convert this dataset to standard ezxr format output
 
     Args:
+        :param inpath: local path to the STB dataset
         :param save_fig: whether to save the visualized image. default to False
 
     Returns:
         :return: None
     """
-    root = 'D:/Hand-data/STB/'
+    root = inpath
     out_dir = out_path
     dirs = os.listdir(root)
     dirs = [i for i in dirs if i.startswith('B6') and os.path.isdir(os.path.join(root, i))]
@@ -86,9 +87,46 @@ def viz(save_fig=False):
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
 
+            # right
+            right_img_path = os.path.join(root, img_dir, right_sample[i])
+            ind_right = int((right_sample[i].strip('.png')).split('_')[-1])
+            img = cv2.imread(right_img_path)
+            right_label = lr_mat_data[..., ind_right]
+            label = right_label - np.mat(lr_trans).reshape([3, 1])
+            pts = trans_uvd(label)
+            plothand(img, pts)
+            if save_fig:
+                if not os.path.exists(outpath):
+                    os.mkdir(outpath)
+                outpath_img = outpath + '/' + right_sample[i][:-4] + '.jpg'
+                cv2.imwrite(outpath_img, img)
+            else:
+                cv2.imshow(right_sample[i][:-4], img)
+                cv2.waitKey(0)
+                cv2.destroyAllWindows()
+
+            #sk
+            sk_img_path = os.path.join(root, img_dir, sk_sample[i])
+            ind_sk = int((sk_sample[i].strip('.png')).split('_')[-1])
+            img = cv2.imread(sk_img_path)
+            # depth = cv2.imread(sk_img_path.replace('color', 'depth'))
+            sk_label = sk_mat_data[..., ind_sk]
+            label = np.mat(sk_rot).transpose() * (sk_label - np.mat(sk_trans).reshape([3, 1]))
+            pts = trans_uvd(label)
+            plothand(img, pts)
+            if save_fig:
+                if not os.path.exists(outpath):
+                    os.mkdir(outpath)
+                outpath_img = outpath + '/' + sk_sample[i][:-4] + '.jpg'
+                cv2.imwrite(outpath_img, img)
+            else:
+                cv2.imshow(sk_sample[i][:-4], img)
+                cv2.waitKey(0)
+                cv2.destroyAllWindows()
 
 def main():
-    viz()
+    inpath = 'D:/Hand-data/STB/'
+    viz(inpath)
 
 
 if __name__ == '__main__':

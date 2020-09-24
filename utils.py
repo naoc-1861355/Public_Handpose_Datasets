@@ -71,7 +71,7 @@ def plothand(img, kp, bones=None):
         kp2 = kp[connection[1]]
         cv2.line(img, (int(kp1[0]), int(kp1[1])), (int(kp2[0]), int(kp2[1])), color, 1, cv2.LINE_AA)
     for i in range(21):
-        cv2.circle(img, (int(kp[i][0]), int(kp[i][1])), 2, colors[i, :], -1)
+        cv2.circle(img, (int(kp[i][0]), int(kp[i][1])), 3, colors[i, :], -1)
 
 
 def generate_json_2d(kps_2d, hand_bbox, is_left):
