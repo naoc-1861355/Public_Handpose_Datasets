@@ -5,7 +5,6 @@ import re
 
 import cv2
 import numpy as np
-from utils import plothand
 
 def saveAnnotation(jointCamPath, positions):
     fOut = open(jointCamPath, 'w')
