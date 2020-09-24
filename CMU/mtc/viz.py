@@ -51,13 +51,13 @@ def project(joints, calib, apply_distort=True):
     return pt.T, x.T
 
 
-def viz(outpath, savefile=False):
+def viz(outpath, savefig=False):
     """
      viz is a function that crop and visualize keypoint annotation on image
 
      Args:
          :param outpath: the output path of image if savefile is True
-         :param savefile : whether to save the visualized image. default to False
+         :param savefig : whether to save the visualized image. default to False
 
      Returns:
         :return None
@@ -82,7 +82,7 @@ def viz(outpath, savefile=False):
         if 'left_hand' in sample:
             # this means left hands exists, then we project 3d to 31 different camera
             outdir = os.path.join(outdir_parent, 'left')
-            if savefile:
+            if savefig:
                 if not os.path.exists(outdir):
                     os.makedirs(outdir)
             for c in range(31):
@@ -110,7 +110,7 @@ def viz(outpath, savefile=False):
                     left_kp_2d[:, 1] = left_kp_2d[:, 1] - crop_y_min
 
                     plothand(img, left_kp_2d)
-                    if savefile:
+                    if savefig:
                         outpath_img = os.path.join(outdir, '00_{:02d}_{}.jpg'.format(c, frame_str))
                         cv2.imwrite(outpath_img, img)
                     else:
@@ -120,7 +120,7 @@ def viz(outpath, savefile=False):
         if 'right_hand' in sample:
             # this means left hands exists, then we project 3d to 31 different camera
             outdir = os.path.join(outdir_parent, 'right')
-            if savefile:
+            if savefig:
                 if not os.path.exists(outdir):
                     os.makedirs(outdir)
             for c in range(31):
@@ -148,7 +148,7 @@ def viz(outpath, savefile=False):
                     right_kp_2d[:, 1] = right_kp_2d[:, 1] - crop_y_min
 
                     plothand(img, right_kp_2d)
-                    if savefile:
+                    if savefig:
                         outpath_img = os.path.join(outdir, '00_{:02d}_{}.jpg'.format(c, frame_str))
                         cv2.imwrite(outpath_img, img)
                     else:
@@ -159,7 +159,7 @@ def viz(outpath, savefile=False):
 
 def main():
     outpath = 'sample'
-    viz(outpath, savefile=False)
+    viz(outpath, savefig=False)
 
 
 if __name__ == '__main__':

@@ -11,6 +11,15 @@ edges = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [0, 9],
 
 
 def normdat(outpath):
+    """
+    normdat is a function that convert this dataset to standard ezxr format output
+
+    Args:
+        :param outpath : root output path of the formatted files
+
+    Returns:
+        :return: None
+    """
     if not os.path.isdir(outpath):
         os.makedirs(outpath)
 

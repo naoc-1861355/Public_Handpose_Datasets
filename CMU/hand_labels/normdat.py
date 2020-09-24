@@ -9,6 +9,7 @@ from utils import generate_json_2d
 
 def normdat(outpath):
     """
+    normdat is a function that convert this dataset to standard ezxr format output
 
     Args:
         :param outpath : root output path of the formatted files

@@ -10,12 +10,12 @@ edges = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [0, 9],
          [13, 14], [14, 15], [15, 16], [0, 17], [17, 18], [18, 19], [19, 20]]
 
 
-def viz(savefile=False):
+def viz(savfig=False):
     """
      viz is a function that crop and visualize keypoint annotation on image
 
      Args:
-         :param savefile : whether to save the visualized image. default to False
+         :param savfig : whether to save the visualized image. default to False
 
      Returns:
         :return None
@@ -67,7 +67,7 @@ def viz(savefile=False):
         pts[:, 1] = pts[:, 1] - crop_y_min
         # Plot annotations
         plothand(im_crop, pts)
-        if savefile:
+        if savfig:
             if not os.path.isdir(outpath):
                 os.makedirs(outpath)
             cv2.imwrite(outpath + f[0:-5] + '.jpg', im_crop)
@@ -78,7 +78,7 @@ def viz(savefile=False):
 
 
 def main():
-    viz(savefile=False)
+    viz(savfig=False)
 
 
 if __name__ == '__main__':
