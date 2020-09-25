@@ -83,10 +83,10 @@ for each dataset, the following scripts are included:
 In ezxr format of datasets, each rgb image corresponding to a json annotation in the following format
 ```
     -- f02-f42: thumb to little finger in 2d
-        -- each finger from finger tip to palm
+        -- each finger from finger palm to tip
     -- f52: wrist in 2d
     -- f03-f43: thumb to little finger in 3d
-        -- each finger from finger tip to palm
+        -- each finger from finger palm to tip
     -- f52: wrist in 3d
     -- is_left: 1-left, 0-right, -1-unknown
     -- palm_center: palm center of hand in 3d
