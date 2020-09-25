@@ -1,6 +1,6 @@
 # Public_Handpose_Datasets
-This repository contains code for exploring and visualizing public handpose datasets listed below.<br>
-Most datasets contains code to convert them to same format (ezxr format)
+This repository contains code in python for exploring and visualizing public handpose datasets listed below.<br>
+Most datasets contains code to convert them to standardized format (ezxr format)
 
 ## Datasets included
 <table>
@@ -72,5 +72,6 @@ Most datasets contains code to convert them to same format (ezxr format)
 </table>
 
 ## script included
-`viz.py` visualize key points annotation <br>
-`normdat.py` convert datasets to same ezxr format
+for each dataset, the following scripts are included:
+-`viz.py` visualize key points annotation <br>
+-`normdat.py` convert datasets to same ezxr format
