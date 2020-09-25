@@ -72,6 +72,25 @@ Most datasets contains code to convert them to standardized format (ezxr format)
 </table>
 
 ## script included
+`read_draw.py` provide script to read and visualize ezxr formatted dataset <br>
+
 for each dataset, the following scripts are included:
--`viz.py` visualize key points annotation <br>
--`normdat.py` convert datasets to same ezxr format
+
+  - `viz.py` visualize key points annotation <br>
+  - `normdat.py` convert datasets to same ezxr format
+  
+## ezxr format
+In ezxr format of datasets, each rgb image corresponding to a json annotation in the following format
+```
+    -- f02-f42: thumb to little finger in 2d
+        -- each finger from finger tip to palm
+    -- f52: wrist in 2d
+    -- f03-f43: thumb to little finger in 3d
+        -- each finger from finger tip to palm
+    -- f52: wrist in 3d
+    -- is_left: 1-left, 0-right, -1-unknown
+    -- palm_center: palm center of hand in 3d
+    -- hand_bbox: hand bounding box in 2d [x_min, x_max, y_min, y_max]
+```
+
+
