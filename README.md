@@ -72,5 +72,5 @@ Most datasets contains code to convert them to same format (ezxr format)
 </table>
 
 ## script included
-`viz.py` visualize key points annotation
+`viz.py` visualize key points annotation <br>
 `normdat.py` convert datasets to same ezxr format
